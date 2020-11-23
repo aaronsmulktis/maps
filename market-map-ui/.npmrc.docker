@@ -1,0 +1,2 @@
+registry=https://repo.carvana.com/repository/carvana-npm-all/
+//repo.carvana.com/repository/carvana-npm-all/:_authToken=${NPM_TOKEN}

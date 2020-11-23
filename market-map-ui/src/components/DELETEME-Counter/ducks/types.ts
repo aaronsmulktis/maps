@@ -1,0 +1,4 @@
+export const FETCH_COUNTER = 'FETCH_COUNTER';
+export const FETCH_COUNTER_SUCCESS = 'FETCH_COUNTER_SUCCESS';
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';

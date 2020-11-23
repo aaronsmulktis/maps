@@ -1,0 +1,26 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Debug Jest",
+			"type": "node",
+			"request": "launch",
+			"program": "${workspaceRoot}/node_modules/jest/bin/jest",
+			"args": [
+				"-c=./jest/jest.config.js",
+				"--runInBand",
+				"--no-cache",
+				"--watchAll",
+				"--env=jsdom"
+			],
+			"env": {
+				"NODE_ENV": "test",
+				"JEST": "true"
+			},
+			"cwd": "${workspaceRoot}",
+			"protocol": "inspector",
+			"console": "integratedTerminal",
+			"internalConsoleOptions": "neverOpen"
+		}
+	]
+}

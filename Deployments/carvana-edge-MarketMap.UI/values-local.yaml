@@ -1,0 +1,55 @@
+# Default values for Microservice.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+image:
+  repository: cvnaimagesdev.azurecr.io
+  pullPolicy: Always
+  name: carvana-edge-MarketMap.UI
+  portname: containerhttp
+
+metadata:
+  namespace: default
+  
+terminationGracePeriodSeconds: 30
+
+
+rollout:
+  maxSurge: 2
+  maxUnavailable: 0
+  
+hpa:
+  minReplicas: 2
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 70
+
+service:
+  type: ClusterIP
+  port: 80
+  targetport: 3001
+  portname: servicehttp
+  livenessUrl: 
+  readinessUrl: 
+  livenessTimeout: 10
+  livenessInitialDelay: 45
+  livenessPeriod: 120
+  readinessTimeout: 10
+  readinessInitialDelay: 45
+  readinessPeriod: 120
+
+ingress:
+  path: /MarketMap.UI/
+
+resources:
+  requests:
+    memory: 100Mi
+    cpu: 200m
+  limits:
+    memory: 200Mi
+    cpu: 400m
+
+environment: DEV
+
+pdb:
+  maxUnavailable: 1

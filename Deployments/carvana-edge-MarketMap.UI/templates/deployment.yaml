@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.metadata.namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: {{ .Values.rollout.maxSurge }}
+      maxUnavailable: {{ .Values.rollout.maxUnavailable }}
+  progressDeadlineSeconds: 120
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      securityContext:
+        runAsUser: 9999
+        runAsGroup: 9999
+        fsGroup: 9999
+      containers:
+      - name: {{ .Chart.Name }}
+        image: "{{.Values.image.repository}}/{{ .Values.image.name }}:{{ .Chart.Version }}-{{ .Values.environment }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: {{ .Values.service.livenessUrl }}
+            port: {{ .Values.service.targetport }}
+          timeoutSeconds: {{ .Values.service.livenessTimeout }}
+          initialDelaySeconds: {{ .Values.service.livenessInitialDelay }}
+          periodSeconds: {{ .Values.service.livenessPeriod }}
+        readinessProbe:
+          httpGet:
+            path: {{ .Values.service.readinessUrl }}
+            port: {{ .Values.service.targetport }}
+          timeoutSeconds: {{ .Values.service.readinessTimeout }}
+          initialDelaySeconds: {{ .Values.service.readinessInitialDelay }}
+          periodSeconds: {{ .Values.service.readinessPeriod }}
+        securityContext:
+          runAsUser: 9999
+          allowPrivilegeEscalation: false
+        envFrom:
+        - configMapRef:
+            name: {{ .Chart.Name }}
+        env:
+        - name: DEPLOY_TIME
+          value: "{{ now | unixEpoch }}"
+        - name: CHART_VERSION
+          value: {{ .Chart.Version }} 
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
+          limits:
+            memory: {{ .Values.resources.limits.memory }}
+            cpu: {{ .Values.resources.limits.cpu }}
+        ports:
+        - containerPort: {{ .Values.service.targetport }}
+          name: {{ .Values.image.portname }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
