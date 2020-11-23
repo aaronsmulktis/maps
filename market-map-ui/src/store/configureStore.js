@@ -3,10 +3,13 @@
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { createStore, applyMiddleware, compose } from 'redux';
+import { createBrowserHistory } from 'history';
 import { middleware as analyticsMiddleware } from '@carvana/analytics';
 import configs from './configs';
 import rootReducer from './rootReducer';
 import initialState from './initialState';
+
+export const history = createBrowserHistory(['/']);
 
 const enhancers = [];
 const middleware = [
