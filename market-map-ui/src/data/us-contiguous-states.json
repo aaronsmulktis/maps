@@ -85,7 +85,8 @@
             ],
             [[8693, 8694]]
           ],
-          "id": 1
+          "id": 1,
+          "properties": { "name": "Alabama"}
         },
         {
           "type": "MultiPolygon",
@@ -120,7 +121,8 @@
               ]
             ]
           ],
-          "id": 4
+          "id": 4,
+          "properties": { "name": "Arizona"}
         },
         {
           "type": "MultiPolygon",
@@ -196,7 +198,8 @@
               ]
             ]
           ],
-          "id": 5
+          "id": 5,
+          "properties": { "name": "Arkansas"}
         },
         {
           "type": "MultiPolygon",
@@ -267,7 +270,8 @@
             [[7073]],
             [[7074]]
           ],
-          "id": 6
+          "id": 6,
+          "properties": { "name": "California"}
         },
         {
           "type": "MultiPolygon",
@@ -329,7 +333,8 @@
               ]
             ]
           ],
-          "id": 8
+          "id": 8,
+          "properties": { "name": "Colorado"}
         },
         {
           "type": "MultiPolygon",
@@ -359,7 +364,8 @@
               ]
             ]
           ],
-          "id": 9
+          "id": 9,
+          "properties": { "name": "Connecticut"}
         },
         {
           "type": "MultiPolygon",
@@ -389,12 +395,14 @@
               ]
             ]
           ],
-          "id": 10
+          "id": 10,
+          "properties": { "name": "Delaware"}
         },
         {
           "type": "MultiPolygon",
           "arcs": [[[4371, 4372, -4099, -4281]]],
-          "id": 11
+          "id": 11,
+          "properties": { "name": "District of Columbia"}
         },
         {
           "type": "MultiPolygon",
@@ -518,7 +526,8 @@
             [[9472, 9493]],
             [[9492]]
           ],
-          "id": 12
+          "id": 12,
+          "properties": { "name": "Florida"}
         },
         {
           "type": "MultiPolygon",
@@ -627,7 +636,8 @@
             [[8545]],
             [[8726]]
           ],
-          "id": 13
+          "id": 13,
+          "properties": { "name": "Georgia"}
         },
         {
           "type": "MultiPolygon",
@@ -686,7 +696,8 @@
               ]
             ]
           ],
-          "id": 16
+          "id": 16,
+          "properties": { "name": "Idaho"}
         },
         {
           "type": "MultiPolygon",
@@ -781,7 +792,8 @@
               ]
             ]
           ],
-          "id": 17
+          "id": 17,
+          "properties": { "name": "Illinois"}
         },
         {
           "type": "MultiPolygon",
@@ -866,7 +878,8 @@
               ]
             ]
           ],
-          "id": 18
+          "id": 18,
+          "properties": { "name": "Indiana"}
         },
         {
           "type": "MultiPolygon",
@@ -951,7 +964,8 @@
               ]
             ]
           ],
-          "id": 19
+          "id": 19,
+          "properties": { "name": "Iowa"}
         },
         {
           "type": "MultiPolygon",
@@ -1044,7 +1058,8 @@
               ]
             ]
           ],
-          "id": 20
+          "id": 20,
+          "properties": { "name": "Kansas"}
         },
         {
           "type": "MultiPolygon",
@@ -1151,7 +1166,8 @@
             ],
             [[5982, -5926]]
           ],
-          "id": 21
+          "id": 21,
+          "properties": { "name": "Kentucky"}
         },
         {
           "type": "MultiPolygon",
@@ -1252,7 +1268,8 @@
             [[9132]],
             [[9162]]
           ],
-          "id": 22
+          "id": 22,
+          "properties": { "name": "Louisiana"}
         },
         {
           "type": "MultiPolygon",
@@ -1288,7 +1305,8 @@
             [[893]],
             [[894]]
           ],
-          "id": 23
+          "id": 23,
+          "properties": { "name": "Main"}
         },
         {
           "type": "MultiPolygon",
@@ -1372,7 +1390,8 @@
             [[4852, 4853, 4854, 4855]],
             [[4856, 4857, 4858]]
           ],
-          "id": 24
+          "id": 24,
+          "properties": { "name": "Maryland"}
         },
         {
           "type": "MultiPolygon",
@@ -1422,7 +1441,8 @@
             [[2604]],
             [[2700]]
           ],
-          "id": 25
+          "id": 25,
+          "properties": { "name": "Massachusetts"}
         },
         {
           "type": "MultiPolygon",
@@ -1509,7 +1529,8 @@
             [[-2482, 9542]],
             [[9543, -2480]]
           ],
-          "id": 26
+          "id": 26,
+          "properties": { "name": "Michigan"}
         },
         {
           "type": "MultiPolygon",
@@ -1588,7 +1609,8 @@
               ]
             ]
           ],
-          "id": 27
+          "id": 27,
+          "properties": { "name": "Minnesota"}
         },
         {
           "type": "MultiPolygon",
@@ -1665,7 +1687,8 @@
               ]
             ]
           ],
-          "id": 28
+          "id": 28,
+          "properties": { "name": "Mississippi"}
         },
         {
           "type": "MultiPolygon",
@@ -1780,7 +1803,8 @@
               ]
             ]
           ],
-          "id": 29
+          "id": 29,
+          "properties": { "name": "Missouri"}
         },
         {
           "type": "MultiPolygon",
@@ -1839,7 +1863,8 @@
               ]
             ]
           ],
-          "id": 30
+          "id": 30,
+          "properties": { "name": "Montana"}
         },
         {
           "type": "MultiPolygon",
@@ -1924,7 +1949,8 @@
               ]
             ]
           ],
-          "id": 31
+          "id": 31,
+          "properties": { "name": "Nebraska"}
         },
         {
           "type": "MultiPolygon",
@@ -1970,7 +1996,8 @@
               ]
             ]
           ],
-          "id": 32
+          "id": 32,
+          "properties": { "name": "Nevada"}
         },
         {
           "type": "MultiPolygon",
@@ -2001,7 +2028,8 @@
               ]
             ]
           ],
-          "id": 33
+          "id": 33,
+          "properties": { "name": "New Hampshire"}
         },
         {
           "type": "MultiPolygon",
@@ -2046,7 +2074,8 @@
               ]
             ]
           ],
-          "id": 34
+          "id": 34,
+          "properties": { "name": "New Jersey"}
         },
         {
           "type": "MultiPolygon",
@@ -2102,7 +2131,8 @@
               ]
             ]
           ],
-          "id": 35
+          "id": 35,
+          "properties": { "name": "New Mexico"}
         },
         {
           "type": "MultiPolygon",
@@ -2177,7 +2207,8 @@
             [[3098, 3131]],
             [[3217]]
           ],
-          "id": 36
+          "id": 36,
+          "properties": { "name": "New York"}
         },
         {
           "type": "MultiPolygon",
@@ -2301,7 +2332,8 @@
             [[7293, 7303]],
             [[7301, 7302]]
           ],
-          "id": 37
+          "id": 37,
+          "properties": { "name": "North Carolina"}
         },
         {
           "type": "MultiPolygon",
@@ -2352,7 +2384,8 @@
               ]
             ]
           ],
-          "id": 38
+          "id": 38,
+          "properties": { "name": "North Dakota"}
         },
         {
           "type": "MultiPolygon",
@@ -2440,7 +2473,8 @@
               ]
             ]
           ],
-          "id": 39
+          "id": 39,
+          "properties": { "name": "Ohio"}
         },
         {
           "type": "MultiPolygon",
@@ -2528,7 +2562,8 @@
               ]
             ]
           ],
-          "id": 40
+          "id": 40,
+          "properties": { "name": "Oklahoma"}
         },
         {
           "type": "MultiPolygon",
@@ -2583,7 +2618,8 @@
               ]
             ]
           ],
-          "id": 41
+          "id": 41,
+          "properties": { "name": "Oregon"}
         },
         {
           "type": "MultiPolygon",
@@ -2661,7 +2697,8 @@
               ]
             ]
           ],
-          "id": 42
+          "id": 42,
+          "properties": { "name": "Pennsylvania"}
         },
         {
           "type": "MultiPolygon",
@@ -2685,7 +2722,8 @@
             [[2517]],
             [[2518, -2223]]
           ],
-          "id": 44
+          "id": 44,
+          "properties": { "name": "Rhode Island"}
         },
         {
           "type": "MultiPolygon",
@@ -2765,7 +2803,8 @@
             [[8100]],
             [[8101]]
           ],
-          "id": 45
+          "id": 45,
+          "properties": { "name": "South Carolina"}
         },
         {
           "type": "MultiPolygon",
@@ -2833,7 +2872,8 @@
               ]
             ]
           ],
-          "id": 46
+          "id": 46,
+          "properties": { "name": "South Dakota"}
         },
         {
           "type": "MultiPolygon",
@@ -2941,7 +2981,8 @@
               ]
             ]
           ],
-          "id": 47
+          "id": 47,
+          "properties": { "name": "Tennessee"}
         },
         {
           "type": "MultiPolygon",
@@ -3094,7 +3135,8 @@
             [[9409, 9410, 9411, 9412]],
             [[9461, 9480]]
           ],
-          "id": 48
+          "id": 48,
+          "properties": { "name": "Texas"}
         },
         {
           "type": "MultiPolygon",
@@ -3139,7 +3181,8 @@
               ]
             ]
           ],
-          "id": 49
+          "id": 49,
+          "properties": { "name": "Utah"}
         },
         {
           "type": "MultiPolygon",
@@ -3172,7 +3215,8 @@
               ]
             ]
           ],
-          "id": 50
+          "id": 50,
+          "properties": { "name": "Vermont"}
         },
         {
           "type": "MultiPolygon",
@@ -3313,7 +3357,8 @@
             [[-4772, 5068]],
             [[5862, 5863, 5864]]
           ],
-          "id": 51
+          "id": 51,
+          "properties": { "name": "Virginia"}
         },
         {
           "type": "MultiPolygon",
@@ -3381,7 +3426,8 @@
             [[260]],
             [[292]]
           ],
-          "id": 53
+          "id": 53,
+          "properties": { "name": "Washington"}
         },
         {
           "type": "MultiPolygon",
@@ -3460,7 +3506,8 @@
               ]
             ]
           ],
-          "id": 54
+          "id": 54,
+          "properties": { "name": "West Virginia"}
         },
         {
           "type": "MultiPolygon",
@@ -3532,7 +3579,8 @@
             ],
             [[9503]]
           ],
-          "id": 55
+          "id": 55,
+          "properties": { "name": "Wisconsin"}
         },
         {
           "type": "MultiPolygon",
@@ -3585,7 +3633,8 @@
               ]
             ]
           ],
-          "id": 56
+          "id": 56,
+          "properties": { "name": "Wyoming"}
         },
         { "type": "MultiPolygon", "arcs": [[[10005]], [[10032]]], "id": 78 }
       ]

@@ -89,8 +89,8 @@ export default function Map({ width, height, events = true }: MapProps) {
                     d={path || ''}
                     fill={color(feature.geometry.coordinates.length)}
                     stroke={background}
-                    strokeWidth={0.5}
-                    onClick={() => {
+                    strokeWidth={1}
+                    onClick={(e) => {
                       if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
                     }}
                   />
@@ -98,34 +98,14 @@ export default function Map({ width, height, events = true }: MapProps) {
               </g>
             )}
           </AlbersUsa>
-
-          {/** intercept all mouse events */}
-          <rect
-            x={0}
-            y={0}
-            width={width}
-            height={height}
-            rx={14}
-            fill="transparent"
-          />
         </svg>
       </div>
-      <label>
-        projection:{' '}
-        <select onChange={event => setProjection(event.target.value)}>
-          {Object.keys(PROJECTIONS).map(projectionName => (
-            <option key={projectionName} value={projectionName}>
-              {projectionName}
-            </option>
-          ))}
-        </select>
-      </label>
       <style jsx>{`
         .container {
           position: relative;
         }
         svg {
-          cursor: grab;
+          cursor: pointer;
         }
         svg.dragging {
           cursor: grabbing;
