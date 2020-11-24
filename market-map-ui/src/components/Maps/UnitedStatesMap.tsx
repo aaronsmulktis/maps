@@ -46,6 +46,8 @@ interface LocationShape {
   Latitude: string;
 }
 
+interface TransformShape {}
+
 const PROJECTIONS: { [projection: string]: Projection } = {
   geoConicConformal,
   geoTransverseMercator,
@@ -54,6 +56,8 @@ const PROJECTIONS: { [projection: string]: Projection } = {
   geoOrthographic,
   geoStereographic,
 };
+
+const locationTopology = topology.transform as TransformShape;
 
 const unitedstates = topojson.feature(topology as Topology, topology.objects.states as GeometryObject) as {
   type: 'FeatureCollection';
@@ -84,29 +88,41 @@ const color = scaleQuantize({
   // ],
 });
 
-const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
-  const [projection, setProjection] = useState<keyof typeof PROJECTIONS>('geoConicEquidistant');
-  const [highlighted, setHighlighted] = useState<Any>('');
+const UnitedStatesMap = ({ theme, width, height, events = true }: MapProps) => {
+  const [projection, setProjection] = useState<keyof typeof PROJECTIONS>('geoAlbersUsa');
+  const [activeState, setActiveState] = useState<Any>('');
+  const [activeLocation, setActiveLocation] = useState<Any>('');
 
-  // const { theme } = props;
-  const { carvana } = theme;
-  console.log('theme: ', theme);
+  // console.log(locationTopology);
+
+  const transformPointReversed = (transform, position) => {
+    console.log('transform: ', transform, 'position: ', position);
+    position = position.slice();
+    position[0] = (position[0] - transform.translate[0]) / (transform.scale[0] * 200),
+    // position[0] = width * (180 + position[0]) / 360
+    position[1] = (position[1] - transform.translate[1]) / (transform.scale[1] * 500);
+    // position[1] = height * (90 - position[1]) / 180
+    // console.log(position);
+    return position;
+  };
 
   return width < 100 ? null : (
     <>
       <MapWrapper className="container united-states-map">
-      <defs>
-        <pattern id="usBg" patternUnits="userSpaceOnUse" width="400" height="400">
-          <image href="images/positive.png" x="0" y="0" width="400" height="400" />
-        </pattern>
-      </defs>
+        {/* <defs>
+          <pattern id="usBg" patternUnits="userSpaceOnUse" width="400" height="400">
+            <image href="images/positive.png" x="0" y="0" width="400" height="400" />
+          </pattern>
+        </defs> */}
+        <filter id="dropshadow" x="-2" y="-2" width="200" height="200">
+          <feGaussianBlur  stdDeviation="1"/>
+        </filter>
         <svg width={width} height={height}>
           <rect x={0} y={0} width={width} height={height} fill={theme.carvana.white.primary} />
           <AlbersUsa<FeatureShape>
             projection={PROJECTIONS[projection]}
             data={unitedstates.features}
-            scale={width/1.1}
-            rotate={[25, 60, 25]}
+            scale={width/1.3}
             translate={[width * 1.8, height * 1.5]}
           >
             {projection => (
@@ -114,20 +130,17 @@ const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
                 <Graticule graticule={g => projection.path(g) || ''} stroke={theme.carvana.gray.light} />
                 {projection.features.map(({ feature, path }, i) => (
                   <StatePath
-
-                    class={`feature-${i}`}
+                    className={`feature-${i}`}
                     key={`feature-${i}`}
                     d={path || ''}
-                    // fill={theme.carvana.blue.primary}
                     fill="url(#usBg)"
                     stroke={theme.carvana.white.primary}
                     strokeWidth={1}
-                    onMouseEnter={e => setHighlighted(`feature-${i}`)}
-                    // style={highlighted === `feature-${i}` ? {fill: 'red'} : {fill: theme.carvana.blue.primary}}
-                    style={highlighted === `feature-${i}` ? {fill: theme.carvana.blue.primary} : {fill: theme.carvana.blue.pastel}}
-                    onClick={(e) => {
-                      if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
-                    }}
+                    onMouseEnter={e => setActiveState(`feature-${i}`)}
+                    style={activeState === `feature-${i}` ? {fill: theme.carvana.blue.primary} : {fill: theme.carvana.blue.pastel}}
+                    // onClick={(e) => {
+                    //   if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
+                    // }}
                   />
                 ))}
               </g>
@@ -138,41 +151,66 @@ const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
           <AlbersUsa<FeatureShape>
             projection={PROJECTIONS[projection]}
             data={locations.data}
-            scale={width/1.3}
-            translate={[width * 1.8, height * 1.5]}
+            scale={width}
+            translate={[width / 2, height / 2]}
           >
             {projection => {
-              console.log('projection: ', projection);
-              return (
-                <g>
-                  {projection.features.map(({ feature, path, projection, Year, CityType, Icon, Description, Longitude, Latitude }, i) => (
-                    // <path
-                    //   key={`location-${i}`}
-                    //   d={path || ''}
-                    //   fill={'red'}
-                    //   stroke={theme.carvana.blue.dark}
-                    //   strokeWidth={1}
-                    //   onClick={(e) => {
-                    //     if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
-                    //   }}
-                    // />
+              // console.log('projection: ', projection);
+              return projection.features.map(({ feature, path, projection }, i) => {
+                console.log('features: ', feature);
+                const coords = [feature.Longitude, feature.Latitude];
+                const title = feature.CityType;
+                const newCoords = transformPointReversed(locationTopology, coords);
+                // console.log('newCoords: ', newCoords);
+
+                return (
+                  <g
+                    class="dot"
+                    originalx={width}
+                    originaly={height}
+                  >
+                    <defs>
+                      <radialGradient id='grad1' >
+                          <stop offset='80%' stopColor={theme.carvana.yellow.primary} stopOpacity={1} />
+                          <stop offset='90%' stopColor={theme.carvana.white.primary} stopOpacity={0.9} />
+                          <stop offset='100%' stopColor={theme.carvana.white.primary} stopOpacity={0} />
+                          {/* <stop offset='50%' stopColor='yellow' stopOpacity={.5} />
+                          <stop offset='400%' stopColor='white' stopOpacity={.8} /> */}
+                      </radialGradient>
+                    </defs>
                     <circle
-                      key={`locale-${i}`}
-                      fill={'#fff'}
+                      key={`location-${i}`}
                       // stroke={theme.carvana.blue.dark}
                       // strokeWidth={0.8}
-                      onClick={(e) => {
-                        if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
+                      onClick={e => setActiveLocation(`location-${i}`)}
+                      // onClick={(e) => {
+                      //   if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
+                      // }}
+                      style={activeLocation === `location-${i}` ? {
+                        fill: 'url(#grad1)',
+                      } : {
+                        fill: theme.carvana.blue.dark,
+                        transform: `translate(${newCoords})`
                       }}
                       // cx={feature.Latitude * 10}
                       // cy={feature.Longitude * -5}
-                      cx={feature.Longitude}
-                      cy={feature.Latitude}
-                      r="3"
-                    />
-                  ))}
-                </g>
-              )
+                      cx={newCoords[0]}
+                      cy={newCoords[1]}
+                      r={activeLocation === `location-${i}` ? '10' : '3'}
+                    ></circle>
+                    <text
+                      style={activeLocation === `location-${i}` ? {
+                        display: 'block',
+                        color: theme.carvana.blue.primary,
+                      } : {
+                        display: 'none'
+                      }}
+                      x={newCoords[0] - (title?.length * 3.5)}
+                      y={newCoords[1] - 6}
+                    >{title}</text>
+                  </g>
+                )
+              })
             }}
           </AlbersUsa>
         </svg>
@@ -224,4 +262,4 @@ const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
   );
 };
 
-export default withTheme(UnitedStates)
+export default withTheme(UnitedStatesMap)
