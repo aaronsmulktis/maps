@@ -46,7 +46,6 @@ interface LocationShape {
   Latitude: string;
 }
 
-const purple = '#201c4e';
 const PROJECTIONS: { [projection: string]: Projection } = {
   geoConicConformal,
   geoTransverseMercator,
@@ -86,7 +85,7 @@ const color = scaleQuantize({
 });
 
 const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
-  const [projection, setProjection] = useState<keyof typeof PROJECTIONS>('geoAlbersUsa');
+  const [projection, setProjection] = useState<keyof typeof PROJECTIONS>('geoConicEquidistant');
   const [highlighted, setHighlighted] = useState<Any>('');
 
   // const { theme } = props;
@@ -102,16 +101,17 @@ const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
         </pattern>
       </defs>
         <svg width={width} height={height}>
-          <rect x={0} y={0} width={width} height={height} fill={theme.carvana.blue.dark} rx={14} />
+          <rect x={0} y={0} width={width} height={height} fill={theme.carvana.white.primary} />
           <AlbersUsa<FeatureShape>
             projection={PROJECTIONS[projection]}
             data={unitedstates.features}
-            scale={width/1.3}
+            scale={width/1.1}
+            rotate={[25, 60, 25]}
             translate={[width * 1.8, height * 1.5]}
           >
             {projection => (
               <g>
-                <Graticule graticule={g => projection.path(g) || ''} stroke={purple} />
+                <Graticule graticule={g => projection.path(g) || ''} stroke={theme.carvana.gray.light} />
                 {projection.features.map(({ feature, path }, i) => (
                   <StatePath
 
@@ -120,11 +120,11 @@ const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
                     d={path || ''}
                     // fill={theme.carvana.blue.primary}
                     fill="url(#usBg)"
-                    stroke={theme.carvana.blue.dark}
+                    stroke={theme.carvana.white.primary}
                     strokeWidth={1}
                     onMouseEnter={e => setHighlighted(`feature-${i}`)}
                     // style={highlighted === `feature-${i}` ? {fill: 'red'} : {fill: theme.carvana.blue.primary}}
-                    style={highlighted === `feature-${i}` ? {fill: theme.carvana.yellow.primary} : {fill: theme.carvana.blue.primary}}
+                    style={highlighted === `feature-${i}` ? {fill: theme.carvana.blue.primary} : {fill: theme.carvana.blue.pastel}}
                     onClick={(e) => {
                       if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
                     }}
