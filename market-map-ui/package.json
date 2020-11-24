@@ -48,6 +48,7 @@
     "@types/node": "14.14.9",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
+    "@types/styled-components": "5.1.4",
     "@types/topojson": "3.2.2",
     "@types/topojson-client": "3.0.0",
     "@types/topojson-specification": "1.0.1",

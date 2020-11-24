@@ -15,6 +15,9 @@ import {
   geoStereographic,
 } from 'd3-geo';
 import topology from '../../data/us-contiguous-states.json';
+import locations from '../../data/carvana-locations.json';
+
+import { MapWrapper, StatePath } from './UnitedStates.styles'
 
 export type MapProps = {
   width: number;
@@ -27,6 +30,15 @@ interface FeatureShape {
   id: string;
   geometry: { coordinates: [number, number][][]; type: 'Polygon' };
   properties: { name: string };
+}
+interface LocationShape {
+  id: number;
+  Year: number;
+  CityType: string;
+  Icon: string;
+  Description: string;
+  Longitude: string;
+  Latitude: string;
 }
 
 export const background = '#252b7e';
@@ -52,26 +64,35 @@ const color = scaleQuantize({
   ],
   range: [
     '#019ece',
-    '#f4448b',
-    '#fccf35',
-    '#82b75d',
-    '#b33c88',
-    '#fc5e2f',
-    '#f94b3a',
-    '#f63a48',
-    '#dde1fe',
-    '#8993f9',
-    '#b6c8fb',
-    '#65fe8d',
   ],
+  // range: [
+  //   '#019ece',
+  //   '#f4448b',
+  //   '#fccf35',
+  //   '#82b75d',
+  //   '#b33c88',
+  //   '#fc5e2f',
+  //   '#f94b3a',
+  //   '#f63a48',
+  //   '#dde1fe',
+  //   '#8993f9',
+  //   '#b6c8fb',
+  //   '#65fe8d',
+  // ],
 });
 
 export default function Map({ width, height, events = true }: MapProps) {
   const [projection, setProjection] = useState<keyof typeof PROJECTIONS>('geoAlbersUsa');
+  const [highlighted, setHighlighted] = useState<Any>('');
 
   return width < 100 ? null : (
     <>
-      <div className="container">
+      <MapWrapper className="container united-states-map">
+      <defs>
+        <pattern id="usBg" patternUnits="userSpaceOnUse" width="400" height="400">
+          <image href="images/positive.png" x="0" y="0" width="400" height="400" />
+        </pattern>
+      </defs>
         <svg width={width} height={height}>
           <rect x={0} y={0} width={width} height={height} fill={background} rx={14} />
           <AlbersUsa<FeatureShape>
@@ -84,12 +105,18 @@ export default function Map({ width, height, events = true }: MapProps) {
               <g>
                 <Graticule graticule={g => projection.path(g) || ''} stroke={purple} />
                 {projection.features.map(({ feature, path }, i) => (
-                  <path
-                    key={`map-feature-${i}`}
+                  <StatePath
+
+                    class={`feature-${i}`}
+                    key={`feature-${i}`}
                     d={path || ''}
-                    fill={color(feature.geometry.coordinates.length)}
+                    // fill={color(feature.geometry.coordinates.length)}
+                    fill="url(#usBg)"
                     stroke={background}
                     strokeWidth={1}
+                    onMouseEnter={e => setHighlighted(`feature-${i}`)}
+                    // style={highlighted === `feature-${i}` ? {fill: 'red'} : {fill: color(feature.geometry.coordinates.length)}}
+                    style={highlighted === `feature-${i}` ? {fill: 'teal'} : {fill: color(feature.geometry.coordinates.length)}}
                     onClick={(e) => {
                       if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
                     }}
@@ -98,8 +125,50 @@ export default function Map({ width, height, events = true }: MapProps) {
               </g>
             )}
           </AlbersUsa>
+
+          {/* Points */}
+          <AlbersUsa<FeatureShape>
+            projection={PROJECTIONS[projection]}
+            data={locations.data}
+            scale={width/1.3}
+            translate={[width * 1.8, height * 1.5]}
+          >
+            {projection => {
+              console.log('projection: ', projection);
+              return (
+                <g>
+                  {projection.features.map(({ feature, path, projection, Year, CityType, Icon, Description, Longitude, Latitude }, i) => (
+                    // <path
+                    //   key={`location-${i}`}
+                    //   d={path || ''}
+                    //   fill={'red'}
+                    //   stroke={background}
+                    //   strokeWidth={1}
+                    //   onClick={(e) => {
+                    //     if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
+                    //   }}
+                    // />
+                    <circle
+                      key={`locale-${i}`}
+                      fill={'#fff'}
+                      // stroke={background}
+                      // strokeWidth={0.8}
+                      onClick={(e) => {
+                        if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
+                      }}
+                      // cx={feature.Latitude * 10}
+                      // cy={feature.Longitude * -5}
+                      cx={feature.Longitude}
+                      cy={feature.Latitude}
+                      r="3"
+                    />
+                  ))}
+                </g>
+              )
+            }}
+          </AlbersUsa>
         </svg>
-      </div>
+      </MapWrapper>
       <style jsx>{`
         .container {
           position: relative;

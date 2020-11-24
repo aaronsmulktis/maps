@@ -10,6 +10,7 @@ import Layout from './components/DELETEME-Layout/Layout';
 import Routes from './Routes'
 
 const GlobalStyle = createGlobalStyle(process.env.NODE_ENV);
+
 export default (
   <Provider store={store}>
     <ThemeProvider>
