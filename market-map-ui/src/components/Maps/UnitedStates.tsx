@@ -1,4 +1,6 @@
+
 import React, { useState } from 'react';
+import { withTheme } from 'styled-components';
 import * as topojson from 'topojson-client';
 import { scaleQuantize } from '@vx/scale';
 import { AlbersUsa, Mercator, EqualEarth, CustomProjection, Graticule } from '@vx/geo';
@@ -19,9 +21,12 @@ import locations from '../../data/carvana-locations.json';
 
 import { MapWrapper, StatePath } from './UnitedStates.styles'
 
+interface Theme {}
+
 export type MapProps = {
   width: number;
   height: number;
+  theme: Theme;
   events?: boolean;
 };
 
@@ -41,7 +46,6 @@ interface LocationShape {
   Latitude: string;
 }
 
-export const background = '#252b7e';
 const purple = '#201c4e';
 const PROJECTIONS: { [projection: string]: Projection } = {
   geoConicConformal,
@@ -81,9 +85,13 @@ const color = scaleQuantize({
   // ],
 });
 
-export default function Map({ width, height, events = true }: MapProps) {
+const UnitedStates = ({ theme, width, height, events = true }: MapProps) => {
   const [projection, setProjection] = useState<keyof typeof PROJECTIONS>('geoAlbersUsa');
   const [highlighted, setHighlighted] = useState<Any>('');
+
+  // const { theme } = props;
+  const { carvana } = theme;
+  console.log('theme: ', theme);
 
   return width < 100 ? null : (
     <>
@@ -94,7 +102,7 @@ export default function Map({ width, height, events = true }: MapProps) {
         </pattern>
       </defs>
         <svg width={width} height={height}>
-          <rect x={0} y={0} width={width} height={height} fill={background} rx={14} />
+          <rect x={0} y={0} width={width} height={height} fill={theme.carvana.blue.dark} rx={14} />
           <AlbersUsa<FeatureShape>
             projection={PROJECTIONS[projection]}
             data={unitedstates.features}
@@ -110,13 +118,13 @@ export default function Map({ width, height, events = true }: MapProps) {
                     class={`feature-${i}`}
                     key={`feature-${i}`}
                     d={path || ''}
-                    // fill={color(feature.geometry.coordinates.length)}
+                    // fill={theme.carvana.blue.primary}
                     fill="url(#usBg)"
-                    stroke={background}
+                    stroke={theme.carvana.blue.dark}
                     strokeWidth={1}
                     onMouseEnter={e => setHighlighted(`feature-${i}`)}
-                    // style={highlighted === `feature-${i}` ? {fill: 'red'} : {fill: color(feature.geometry.coordinates.length)}}
-                    style={highlighted === `feature-${i}` ? {fill: 'teal'} : {fill: color(feature.geometry.coordinates.length)}}
+                    // style={highlighted === `feature-${i}` ? {fill: 'red'} : {fill: theme.carvana.blue.primary}}
+                    style={highlighted === `feature-${i}` ? {fill: theme.carvana.yellow.primary} : {fill: theme.carvana.blue.primary}}
                     onClick={(e) => {
                       if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
                     }}
@@ -142,7 +150,7 @@ export default function Map({ width, height, events = true }: MapProps) {
                     //   key={`location-${i}`}
                     //   d={path || ''}
                     //   fill={'red'}
-                    //   stroke={background}
+                    //   stroke={theme.carvana.blue.dark}
                     //   strokeWidth={1}
                     //   onClick={(e) => {
                     //     if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
@@ -151,7 +159,7 @@ export default function Map({ width, height, events = true }: MapProps) {
                     <circle
                       key={`locale-${i}`}
                       fill={'#fff'}
-                      // stroke={background}
+                      // stroke={theme.carvana.blue.dark}
                       // strokeWidth={0.8}
                       onClick={(e) => {
                         if (events) alert(`Clicked: ${feature.properties.name} (${feature.id})`);
@@ -214,4 +222,6 @@ export default function Map({ width, height, events = true }: MapProps) {
       `}</style>
     </>
   );
-}
+};
+
+export default withTheme(UnitedStates)

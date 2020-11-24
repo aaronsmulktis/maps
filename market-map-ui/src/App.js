@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router } from 'react-router-dom'
+import { Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { Provider as AnalyticsProvider } from '@carvana/analytics';
 import ThemeProvider, { createGlobalStyle } from '@carvana/theme';
@@ -10,7 +10,6 @@ import Layout from './components/DELETEME-Layout/Layout';
 import Routes from './Routes'
 
 const GlobalStyle = createGlobalStyle(process.env.NODE_ENV);
-
 export default (
   <Provider store={store}>
     <ThemeProvider>
