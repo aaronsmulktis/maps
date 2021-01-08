@@ -25,3 +25,8 @@ yarn-debug.log*
 yarn-error.log*
 
 package-lock.json
+
+# ignore from Jiansen
+./.env.production
+./package-lock.json
+./yarn.lock

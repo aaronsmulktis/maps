@@ -98,9 +98,9 @@ const UnitedStatesMap = ({ theme, width, height, events = true }: MapProps) => {
   const transformPointReversed = (transform, position) => {
     console.log('transform: ', transform, 'position: ', position);
     position = position.slice();
-    position[0] = (position[0] - transform.translate[0]) / (transform.scale[0] * 200),
+    position[0] = (position[0] - transform.translate[0]) / (transform.scale[0] * 200) - 300,
     // position[0] = width * (180 + position[0]) / 360
-    position[1] = (position[1] - transform.translate[1]) / (transform.scale[1] * 500);
+    position[1] = (position[1] - transform.translate[1]) / (transform.scale[1] * 900) - 750;
     // position[1] = height * (90 - position[1]) / 180
     // console.log(position);
     return position;
@@ -190,7 +190,9 @@ const UnitedStatesMap = ({ theme, width, height, events = true }: MapProps) => {
                         fill: 'url(#grad1)',
                       } : {
                         fill: theme.carvana.blue.dark,
-                        transform: `translate(${newCoords})`
+                        transform: `translate(${newCoords})`,
+                        transform: `scaleY(-1)`,
+                        //transform: `scale(1.2)`
                       }}
                       // cx={feature.Latitude * 10}
                       // cy={feature.Longitude * -5}
