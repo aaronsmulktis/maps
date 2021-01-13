@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "Year": 2013,
+      "City": "Phoenix - HQ",
+      "Icon": "#icon-1899-0F9D58-HQ",
+      "Desc": "Headquarters",
+      "Long": "-112.1487134",
+      "Lat": "33.3596989"
+    },
+    {
+      "Year": 2012,
+      "City": "Atlanta - Office",
+      "Icon": "#icon-1899-0F9D58",
+      "Desc": "Corporate Office",
+      "Long": "-84.3777502",
+      "Lat": "33.8521935"
+    },
+    {
+      "Year": 2015,
+      "City": "Venice - Office",
+      "Icon": "#icon-1899-0F9D59",
+      "Desc": "Corporate Office",
+      "Long": "-118.4799944",
+      "Lat": "33.9922808"
+    }
+  ]
+}

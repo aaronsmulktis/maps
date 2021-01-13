@@ -1,0 +1,68 @@
+{
+  "data": [
+    {
+      "Year": 2013,
+      "City": "Winder - IC",
+      "Icon": "#icon-1899-FBC02D",
+      "Desc": "IC #1 - launched 2/1/13",
+      "Long": "-83.7201709",
+      "Lat": "33.9926097"
+    },
+    {
+      "Year": 2015,
+      "City": "Blue Mound - IC",
+      "Icon": "#icon-1899-FBC02D",
+      "Desc": "IC #2 - launched 5/1/15<br>Market #5 - launched 5/1/15",
+      "Long": "-97.3389061",
+      "Lat": "32.8565166"
+    },
+    {
+      "Year": 2015,
+      "City": "Delanco - IC",
+      "Icon": "#icon-1899-FBC02D",
+      "Desc": "IC #2 - launched 12/1/15",
+      "Long": "-74.9535016",
+      "Lat": "40.0506669"
+    },
+    {
+      "Year": 2017,
+      "City": "Tolleson IC",
+      "Icon": "#icon-1899-FBC02D",
+      "Desc": "IC #4<br>In Tolleson, AZ<br>Launch date: 9/27/17",
+      "Long": "-112.259321",
+      "Lat": "33.4500425"
+    },
+    {
+      "Year": 2018,
+      "City": "Indianapolis - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #5<br>Launched 12/17/18 Media launched 3/26",
+      "Long": "-86.158068",
+      "Lat": "39.768403"
+    },
+    {
+      "Year": 2019,
+      "City": "Cleveland - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #6",
+      "Long": "-81.6943605",
+      "Lat": "41.49932"
+    },
+    {
+      "Year": 2019,
+      "City": "Nashville - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #7",
+      "Long": "-86.7102129",
+      "Lat": "36.2335401"
+    },
+    {
+      "Year": 2019,
+      "City": "Concord - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #8 2-27-2020",
+      "Long": "-80.579511",
+      "Lat": "35.4087517"
+    }
+  ]
+}

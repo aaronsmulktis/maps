@@ -1,0 +1,244 @@
+{
+  "data": [
+    {
+      "Year": 2015,
+      "City": "Nashville - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #2 - launched ???<br>VM #1 - launched 11/12/15",
+      "Long": "-86.7816016",
+      "Lat": "36.1626638"
+    },
+    {
+      "Year": 2016,
+      "City": "Houston - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #6 - launched 10/12/15<br>VM #2 - launched 12/14/16",
+      "Long": "-95.3698028",
+      "Lat": "29.7604267"
+    },
+    {
+      "Year": 2017,
+      "City": "Austin - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #7 - launched 10/19/15<br>VM #3 - launched 2/7/17",
+      "Long": "-97.7430608",
+      "Lat": "30.267153"
+    },
+    {
+      "Year": 2017,
+      "City": "San Antonio - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #8 - launched 10/26/15<br>VM #4 - launched 3/15/17",
+      "Long": "-98.4936282",
+      "Lat": "29.4241219"
+    },
+    {
+      "Year": 2017,
+      "City": "Dallas/Frisco - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #5 - launched 5/1/15<br>VM #5 - launched 4/20/17",
+      "Long": "-96.8236116",
+      "Lat": "33.1506744"
+    },
+    {
+      "Year": 2017,
+      "City": "Raleigh - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #9 - launched 11/2/15<br>VM #6 - launched 8/30/17",
+      "Long": "-78.6381787",
+      "Lat": "35.7795897"
+    },
+    {
+      "Year": 2017,
+      "City": "Jacksonville - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #11 - launched 3/28/16<br>VM #7 - launched 10/4/17",
+      "Long": "-81.655651",
+      "Lat": "30.3321838"
+    },
+    {
+      "Year": 2018,
+      "City": "Tampa - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #12 - launched 4/4/16<br>VM #8 - launched 3/29/18",
+      "Long": "-82.4571776",
+      "Lat": "27.950575"
+    },
+    {
+      "Year": 2018,
+      "City": "Charlotte - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #3 - launched 9/1/14<br>VM #9 - launched 5/4/18",
+      "Long": "-80.8431267",
+      "Lat": "35.2270869"
+    },
+    {
+      "Year": 2018,
+      "City": "Washington DC - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #15 - launched 7/27/16<br>VM #10 - launched 6/5/18",
+      "Long": "-77.0368707",
+      "Lat": "38.9071923"
+    },
+    {
+      "Year": 2018,
+      "City": "Orlando - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #10 - launched 3/7/16<br>VM #11 - launched 6/7/18",
+      "Long": "-81.3792365",
+      "Lat": "28.5383355"
+    },
+    {
+      "Year": 2018,
+      "City": "Phoenix - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #33 - launched 8/2/17<br>VM #12 - launched 6/20/18",
+      "Long": "-112.0740373",
+      "Lat": "33.4483771"
+    },
+    {
+      "Year": 2018,
+      "City": "Cleveland - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #21 - launched 12/7/16<br>VM #13 - launched 7/19/18",
+      "Long": "-81.6943605",
+      "Lat": "41.49932"
+    },
+    {
+      "Year": 2018,
+      "City": "Philadelphia - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #23 - launched 3/22/17<br>VM #14 - launched 10/11/18",
+      "Long": "-75.1652215",
+      "Lat": "39.9525839"
+    },
+    {
+      "Year": 2018,
+      "City": "Indianapolis - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #20 - launched 11/22/16<br>VM #15 -  launched 12/13/18",
+      "Long": "-86.158068",
+      "Lat": "39.768403"
+    },
+    {
+      "Year": 2019,
+      "City": "Pittsburgh - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #19 10/26/16<br>VM #16 Launched 3/21/19",
+      "Long": "-79.9958864",
+      "Lat": "40.4406248"
+    },
+    {
+      "Year": 2019,
+      "City": "Chicago - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #25 - launched 5/10/17                                VM #17 - launched 4/10/19",
+      "Long": "-87.6297982",
+      "Lat": "41.8781136"
+    },
+    {
+      "Year": 2019,
+      "City": "Kansas City - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #45- launched 1/24/18<br>VM #18 - launched 5/9/19",
+      "Long": "-94.5785667",
+      "Lat": "39.0997265"
+    },
+    {
+      "Year": 2019,
+      "City": "Greensboro - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #46 launched on 1/31/18                      VM#19 launched on 7/17/19",
+      "Long": "-79.7919754",
+      "Lat": "36.0726354"
+    },
+    {
+      "Year": 2019,
+      "City": "Los Angeles - Westminster VM Q3",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #38 - launched 9/4/17                       VM#20 launched on 8/15/19",
+      "Long": "-118.2436849",
+      "Lat": "34.0522342"
+    },
+    {
+      "Year": 2019,
+      "City": "Los Angeles - Ontario VM - Q3",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "VM#21 launched on 9/6/19",
+      "Long": "-117.6508876",
+      "Lat": "34.0633443"
+    },
+    {
+      "Year": 2019,
+      "City": "Oklahoma City - VM - Q3",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #30 - launched 6/21/17<br>VM #21 - launched 9/26/19",
+      "Long": "-97.5164276",
+      "Lat": "35.4675602"
+    },
+    {
+      "Year": 2019,
+      "City": "Memphis - VM - Q4",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #19 - launched 11/9/16                                 VM #23 - launched 11/13/2019",
+      "Long": "-90.0489801",
+      "Lat": "35.1495343"
+    },
+    {
+      "Year": 2019,
+      "City": "Miami - VM - Q1 2020",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "VM #24 - launched 1/29/20<br>Market #13 - launched 4/11/16",
+      "Long": "-80.1917902",
+      "Lat": "25.7616798"
+    },
+    {
+      "Year": 2020,
+      "City": "Louisville - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #31 - launched 7/5/17<br>VM #25 - launched 8/12/20",
+      "Long": "-85.7584557",
+      "Lat": "38.2526647"
+    },
+    {
+      "Year": 2020,
+      "City": "Detroit - VM",
+      "Icon": "#icon-1899-9C27B0",
+      "Desc": "Market #32 - launched 7/19/17<br>VM #26 - launched 10/1/20",
+      "Long": "-83.0457538",
+      "Lat": "42.331427"
+    },
+    {
+      "Year": 2018,
+      "City": "Indianapolis - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #5<br>Launched 12/17/18 Media launched 3/26",
+      "Long": "-86.158068",
+      "Lat": "39.768403"
+    },
+    {
+      "Year": 2019,
+      "City": "Cleveland - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #6",
+      "Long": "-81.6943605",
+      "Lat": "41.49932"
+    },
+    {
+      "Year": 2019,
+      "City": "Nashville - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #7",
+      "Long": "-86.7102129",
+      "Lat": "36.2335401"
+    },
+    {
+      "Year": 2019,
+      "City": "Concord - IC",
+      "Icon": "#icon-1899-FFD600",
+      "Desc": "IC #8 2-27-2020",
+      "Long": "-80.579511",
+      "Lat": "35.4087517"
+    }
+  ]
+}
