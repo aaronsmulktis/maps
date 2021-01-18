@@ -18,11 +18,12 @@ import {
 } from 'd3-geo';
 import topology from '../../data/us-contiguous-states.json';
 import locations from '../../data/carvana-locations.json';
+import offices from '../../data/offices.json'
+import machines from '../../data/vending-machines.json'
 
-import { MapWrapper, StatePath } from './UnitedStates.styles'
+import { MapWrapper, StatePath, OfficesPath } from './UnitedStates.styles'
 
 interface Theme {}
-
 const newlocations = locations.data.map(e => {
   return {
     "type": "Feature",
@@ -32,6 +33,34 @@ const newlocations = locations.data.map(e => {
       "coordinates": [
         e.Longitude,
         e.Latitude
+      ]
+    }
+  }
+})
+
+const newOffices = offices.data.map(e => {
+  return {
+    "type": "Feature",
+    "properties": {},
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        e.Long,
+        e.Lat
+      ]
+    }
+  }
+})
+
+const newMachines = machines.data.map(e => {
+  return {
+    "type": "Feature",
+    "properties": {},
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        e.Long,
+        e.Lat
       ]
     }
   }
@@ -155,22 +184,6 @@ const UnitedStatesMap = ({ theme, width, height, events = true }: MapProps) => {
             scale={size.width/1.3}
             translate={[size.width * 1.8, size.height * (size.width/size.height * 0.8)]}
           >
-            {/* {projection => {
-              console.log("projection",projection)
-              return projection.features.map(({ feature, path, projection }, i) => {
-                return (
-                  // <g  class="dot">
-                  //   <defs>
-                  //     <radialGradient id='grad1' >
-                  //         <stop offset='80%' stopColor={theme.carvana.yellow.primary} stopOpacity={1} />
-                  //         <stop offset='90%' stopColor={theme.carvana.white.primary} stopOpacity={0.9} />
-                  //         <stop offset='100%' stopColor={theme.carvana.white.primary} stopOpacity={0} />
-                  //     </radialGradient>
-                  //   </defs>
-                  // </g>
-                )
-              })
-            }} */}
             {mercator => {
               return <g>
               {mercator.features.map(({ feature, path }, i) => (
@@ -182,6 +195,54 @@ const UnitedStatesMap = ({ theme, width, height, events = true }: MapProps) => {
                   console.log("e",e)
                 }}
                 ></path>))
+                }
+            </g>
+            }}
+          </AlbersUsa>
+
+          <AlbersUsa<FeatureShape>
+            projection={PROJECTIONS[projection]}
+            data={newOffices}
+            scale={size.width/1.3}
+            translate={[size.width * 1.8, size.height * (size.width/size.height * 0.8)]}
+          >
+            {mercator => {
+              
+              return <g>
+              {mercator.features.map(({ feature, path }, i) => {
+                const newPath = path.split(",")
+                const officePath = `${newPath[0]} ${newPath[1]} L150 350 L350 350 Z`
+                return <OfficesPath 
+                    d={path}
+                    id="embed"
+                    strokeWidth={1}
+                    fill={"red"}
+                />
+              })
+                }
+            </g>
+            }}
+          </AlbersUsa>
+
+          <AlbersUsa<FeatureShape>
+            projection={PROJECTIONS[projection]}
+            data={newMachines}
+            scale={size.width/1.3}
+            translate={[size.width * 1.8, size.height * (size.width/size.height * 0.8)]}
+          >
+            {mercator => {
+              
+              return <g>
+              {mercator.features.map(({ feature, path }, i) => {
+                const newPath = path.split(",")
+                const officePath = `${newPath[0]} ${newPath[1]} L150 350 L350 350 Z`
+                return <OfficesPath 
+                    d={path}
+                    id="embed"
+                    strokeWidth={1}
+                    fill={"yellow"}
+                />
+              })
                 }
             </g>
             }}

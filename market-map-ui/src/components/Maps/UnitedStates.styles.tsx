@@ -9,4 +9,6 @@ export const StatePath = styled.path`
   box-shadow: 0 3px 10px rgba(0,0,0,1);
 `;
 
+export const OfficesPath = styled.path`
+`
 // fill: ${(props: Any) => props.isHighlighted ? 'red' : 'blue'}
