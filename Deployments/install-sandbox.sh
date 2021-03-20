@@ -1,16 +1,16 @@
-SUBSCRIPTION=Carvana-Sandbox
-RESOURCEGROUP=HarmanjitTestRG
-CLUSTERNAME=HarmanjitTestClusterWestNew
+SUBSCRIPTION=Company-Sandbox
+RESOURCEGROUP=PersonTestRG
+CLUSTERNAME=PersonTestClusterWestNew
 SERVICENAME=MarketMap.UI
-APPIMAGENAME=harmanjittestcontainerregistry.azurecr.io/$SERVICENAME
+APPIMAGENAME=persontestcontainerregistry.azurecr.io/$SERVICENAME
 NAMESPACE=default
-CONTAINERREGISTRY=HarmanjitTestContainerRegistry
+CONTAINERREGISTRY=PersonTestContainerRegistry
 
 az login --service-principal -u $SERVICEPRINCIPAL -p $PASSWORD --tenant $TENANTID
 az cloud set --name AzureCloud
 az account set --subscription "$SUBSCRIPTION"
 az aks get-credentials --resource-group $RESOURCEGROUP --name $CLUSTERNAME
-az acr login --name HarmanjitTestContainerRegistry
+az acr login --name PersonTestContainerRegistry
 
 commit=$(git rev-parse --short HEAD 2> /dev/null | sed "s/\(.*\)/\1/")
 if [ -z "$commit" ]
