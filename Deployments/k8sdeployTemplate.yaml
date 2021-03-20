@@ -26,7 +26,7 @@ steps:
     environment: 'DEV'
     clusterName: 'eng0'
     setHelmChartVars: true
-    chartPath: 'Deployments/carvana-edge-MarketMap.UI'
+    chartPath: 'Deployments/company-edge-MarketMap.UI'
 #steps:
 #- bash: docker build -f $(system.defaultWorkingDirectory)/$(projectName)/Dockerfile -t $(registryServerName)/$(imageName):$(build.buildId) $(system.defaultWorkingDirectory)/$(projectName)
 #  displayName: 'docker build'
@@ -55,12 +55,12 @@ steps:
   enabled: true
 
 - task: HelmDeploy@0
-  displayName: 'Helm Deploy HarmanjitTestClusterWestNew'
+  displayName: 'Helm Deploy PersonTestClusterWestNew'
   inputs:
     connectionType: 'Azure Resource Manager'
     azureSubscription: 'SandboxK8sConn'
-    azureResourceGroup: 'HarmanjitTestRG'
-    kubernetesCluster: 'HarmanjitTestClusterWestNew'
+    azureResourceGroup: 'PersonTestRG'
+    kubernetesCluster: 'PersonTestClusterWestNew'
     namespace: 'edge'
     command: 'upgrade'
     chartType: 'FilePath'
