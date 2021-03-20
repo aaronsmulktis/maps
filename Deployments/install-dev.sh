@@ -1,10 +1,10 @@
-SUBSCRIPTION=Carvana-Dev
-RESOURCEGROUP=cvna-k8s-micro-dev-rg
-CLUSTERNAME=cvna-k8s-micro-dev
+SUBSCRIPTION=Company-Dev
+RESOURCEGROUP=company-k8s-micro-dev-rg
+CLUSTERNAME=company-k8s-micro-dev
 SERVICENAME=MarketMap.UI
-APPIMAGENAME=cvnadev.azurecr.io/$SERVICENAME
+APPIMAGENAME=companydev.azurecr.io/$SERVICENAME
 NAMESPACE=default
-CONTAINERREGISTRY=cvnadev
+CONTAINERREGISTRY=companydev
 
 az login --service-principal -u $SERVICEPRINCIPAL -p $PASSWORD --tenant $TENANTID
 az cloud set --name AzureCloud
